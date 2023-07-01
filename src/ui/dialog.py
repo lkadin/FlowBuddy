@@ -22,7 +22,8 @@ class BaseDialog(QDialog):
     def __init__(self, title: str = "Title",
                  parent: QWidget | None = None,) -> None:
         super().__init__(parent = parent)
-        
+
+        self.setWindowFlags(Qt.WindowStaysOnTopHint)
         self._layout = QVBoxLayout()
         self.setLayout(self._layout)
         self._layout.setContentsMargins(0, 0, 0, 0)
@@ -53,7 +54,7 @@ class BaseDialog(QDialog):
         self.setLayout = self._main_layout.setLayout
         self.layout = self._main_layout.layout
         
-        self.setModal(True)
+        # self.setModal(True)
         
         # self.setFixedSize(100, 100)
         
